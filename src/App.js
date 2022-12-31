@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import Form from "./Form";
+import List from "./List";
+import {useDispatch} from "react-redux";
+import {jobLoad} from "./store/Slices/jobSlice";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        (async () => {
+            const result = await fetch('/demo.json');
+            const jobs = await result.json();
+            dispatch(jobLoad(jobs))
+        })()
+    }, [])
+
+
+    return (
+        <div className="container mt-5">
+            <Form />
+            <List />
+        </div>
+    );
 }
-
-export default App;
