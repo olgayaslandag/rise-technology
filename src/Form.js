@@ -35,7 +35,7 @@ function Form() {
         }
     }
 
-    const HandleChange = e => setFormFields({...formFields, [e.target.name]: e.target.value.replace(/[^0-9a-zğüşöçİĞÜŞÖÇ]/gi, '')});
+    const HandleChange = e => setFormFields({...formFields, [e.target.name]: e.target.value.replace(/[^0-9a-zğüşöçİĞÜŞÖÇ ]/gi, '')});
 
     return (
         <div>

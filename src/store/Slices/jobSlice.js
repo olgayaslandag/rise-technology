@@ -14,8 +14,8 @@ export const jobSlice = createSlice({
         jobLoad: (state, action) => {
             state.all = action.payload;
         },
-        jobInsert: (state, {payload}) => {
-            state.all.push(payload);
+        jobInsert: (state, action) => {
+            state.all.push(action.payload);
         },
         jobUpdate: (state, action) => {
             const index = action.payload.id;

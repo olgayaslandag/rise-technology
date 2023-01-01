@@ -14,7 +14,7 @@ function List() {
         if(filter.name)
             items = items.filter(job => job.name.toLocaleLowerCase('TR').includes(filter.name.toLocaleLowerCase('TR')))
         if(filter.priority)
-            items = items.filter(job => job.priority === filter.priority);
+            items = items.filter(job => Number(job.priority) === Number(filter.priority));
         setFiltered(items);
     }, [filter, jobs]);
 
