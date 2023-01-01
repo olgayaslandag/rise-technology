@@ -1,7 +1,7 @@
 import React, {useMemo, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {jobInsert} from "./store/Slices/jobSlice";
-import {SwalConfirm, SwalWait, Toast} from "./Components/Swal";
+import {SwalConfirm, SwalNew, SwalWait, Toast} from "./Components/Swal";
 import { FiPlus } from 'react-icons/fi';
 
 function Form() {
@@ -14,6 +14,15 @@ function Form() {
 
     const HandleSubmit = async e => {
         e.preventDefault();
+        if(formFields.name.length > 255) {
+            await SwalNew.fire({
+                icon: 'warning',
+                title: 'Ooooppssss!!!',
+                text: 'The name field must be a maximum of 255 characters.'
+            });
+            return false;
+        }
+
         const confirm = await SwalConfirm.fire({
             icon: 'question',
             title: 'Are You Sure?',
