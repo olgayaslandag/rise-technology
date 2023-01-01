@@ -13,7 +13,7 @@ export default function App() {
             const jobs = await result.json();
             dispatch(jobLoad(jobs))
         })()
-    }, [])
+    }, [dispatch])
 
 
     return (

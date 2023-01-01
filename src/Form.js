@@ -2,6 +2,7 @@ import React, {useMemo, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {jobInsert} from "./store/Slices/jobSlice";
 import {SwalConfirm, SwalWait, Toast} from "./Components/Swal";
+import { FiPlus } from 'react-icons/fi';
 
 function Form() {
     const defaultFields = useMemo(() => {
@@ -15,8 +16,8 @@ function Form() {
         e.preventDefault();
         const confirm = await SwalConfirm.fire({
             icon: 'question',
-            title: 'Emin misin?',
-            text: 'Veriyi sisteme eklemek istediğinizden emin misiniz?',
+            title: 'Are You Sure?',
+            text: 'Are you sure you want to add the data to the database?',
         });
 
         if(confirm.isConfirmed) {
@@ -27,7 +28,7 @@ function Form() {
 
                 Toast.fire({
                     icon: 'success',
-                    title: 'Veri sisteme başarılı bir şekilde eklendi.'
+                    title: 'Successfully added to the database.'
                 });
                 wait.close();
             }, 500);
@@ -63,7 +64,7 @@ function Form() {
                                         />
                                     </div>
                                 </td>
-                                <td width="25%">
+                                <td width="20%">
                                     <div className="form-group">
                                         <label htmlFor="priority">
                                             Job Priority
@@ -82,9 +83,9 @@ function Form() {
                                         </select>
                                     </div>
                                 </td>
-                                <td width="5%" className="text-end">
+                                <td width="10%" className="text-end">
                                     <button type="submit" className="btn btn-primary bg-primary mt-4">
-                                        Create
+                                        <FiPlus style={{display: 'inline-block', marginTop: -2}} /> Create
                                     </button>
                                 </td>
                             </tr>

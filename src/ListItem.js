@@ -2,6 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {SwalConfirm, Toast} from "./Components/Swal";
 import {jobDelete, jobSelect} from "./store/Slices/jobSlice";
+import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
 function ListItem({jobs}) {
     const priorities = useSelector(state => state.priority.all)
@@ -11,14 +12,14 @@ function ListItem({jobs}) {
         const confirm = await SwalConfirm.fire({
             icon: 'question',
             title: 'Emin misin?',
-            text: 'Veriyi sistemden kalıcı olarak silmek istediğinize emin misiniz?',
+            text: 'Are you sure you want to permanently delete the data?',
         });
 
         if(confirm.isConfirmed) {
             dispatch(jobDelete(jobIndex));
             await Toast.fire({
                 icon: 'success',
-                title: 'Veri sistemden başarılı bir şekilde silindi.'
+                title: 'Successfully deleted to the database.'
             });
         }
     }
@@ -42,9 +43,11 @@ function ListItem({jobs}) {
                     onClick={() => HandleEdit(job, index)}
                     data-bs-toggle="modal"
                     data-bs-target="#edit">
-                    Edit
+                    <FiEdit2 />
                 </button>
-                <button className="btn btn-sm btn-danger" onClick={() => HandleDelete(index)}>Delete</button>
+                <button className="btn btn-sm btn-danger" onClick={() => HandleDelete(index)}>
+                    <FiTrash2 />
+                </button>
             </td>
         </tr>
     ))
