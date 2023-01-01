@@ -54,52 +54,46 @@ function Form() {
                 </div>
                 <div className="card-body">
                     <form onSubmit={HandleSubmit}>
-                        <table className="table table-borderless">
-                            <tbody>
-                            <tr>
-                                <td width="70%">
-                                    <div className="form-group">
-                                        <label htmlFor="name">
-                                            Job Name
-                                        </label>
-                                        <input
-                                            id="name"
-                                            name="name"
-                                            required
-                                            className="form-control"
-                                            onChange={HandleChange}
-                                            value={formFields.name}
-                                            maxLength={255}
-                                        />
-                                    </div>
-                                </td>
-                                <td width="20%">
-                                    <div className="form-group">
-                                        <label htmlFor="priority">
-                                            Job Priority
-                                        </label>
-                                        <select
-                                            name="priority"
-                                            id="priority"
-                                            className="form-select"
-                                            required
-                                            onChange={HandleChange}
-                                            value={formFields.priority}>
-                                            <option value="">Choose</option>
-                                            {priorities.map((priority, index) => (
-                                                <option key={index} value={index}>{priority.name}</option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                </td>
-                                <td width="10%" className="text-end">
-                                    <button type="submit" className="btn btn-primary bg-primary mt-4">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-12 col-sm-7 mb-3">
+                                    <label htmlFor="name">
+                                        Job Name
+                                    </label>
+                                    <input
+                                        id="name"
+                                        name="name"
+                                        required
+                                        className="form-control"
+                                        onChange={HandleChange}
+                                        value={formFields.name}
+                                        maxLength={255}
+                                    />
+                                </div>
+                                <div className="col-12 col-sm-3 mb-3">
+                                    <label htmlFor="priority">
+                                        Job Priority
+                                    </label>
+                                    <select
+                                        name="priority"
+                                        id="priority"
+                                        className="form-select"
+                                        required
+                                        onChange={HandleChange}
+                                        value={formFields.priority}>
+                                        <option value="">Choose</option>
+                                        {priorities.map((priority, index) => (
+                                            <option key={index} value={index}>{priority.name}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="col-12 col-sm-2">
+                                    <button type="submit" className="btn btn-primary form-control addButton">
                                         <FiPlus style={{display: 'inline-block', marginTop: -2}} /> Create
                                     </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

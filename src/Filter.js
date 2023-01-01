@@ -14,32 +14,32 @@ function Filter() {
     const [filterForm, setFilterForm] = useState(filter);
 
     return (
-        <table className="table table-borderless">
-            <tbody>
-            <tr>
-                <td width="80%">
-                    <input
-                        name="name"
-                        className="form-control"
-                        value={filterForm.name}
-                        placeholder="Job Name"
-                        onChange={HandleFilter} />
-                </td>
-                <td width="20%">
-                    <select
-                        name="priority"
-                        className="form-select"
-                        value={filterForm.priority}
-                        onChange={HandleFilter}>
-                        <option value="">All Priorities</option>
-                        {priorities.map((priority, index) => (
-                            <option key={index} value={index}>{priority.name}</option>
-                        ))}
-                    </select>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-sm-7 mb-3">
+                        <input
+                            name="name"
+                            className="form-control"
+                            value={filterForm.name}
+                            placeholder="Job Name"
+                            onChange={HandleFilter} />
+                    </div>
+                    <div className="col-12 col-sm-5 mb-3">
+                        <select
+                            name="priority"
+                            className="form-select"
+                            value={filterForm.priority}
+                            onChange={HandleFilter}>
+                            <option value="">All Priorities</option>
+                            {priorities.map((priority, index) => (
+                                <option key={index} value={index}>{priority.name}</option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
 

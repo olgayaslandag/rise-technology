@@ -31,13 +31,18 @@ function ListItem({jobs}) {
 
     return jobs.map((job, index) => (
         <tr key={index}>
-            <td>{job.name}</td>
             <td>
+                <div style={{minWidth: 180}}>
+                    {job.name}
+                </div>
+            </td>
+            <td className="text-center">
                 <div className={'btn btn-sm btn-' + priorities[job.priority]?.class}>
                     {priorities[job.priority]?.name}
                 </div>
             </td>
             <td>
+                <div style={{minWidth: 80}}>
                 <button
                     className="btn btn-sm btn-secondary me-1"
                     onClick={() => HandleEdit(job, index)}
@@ -48,6 +53,7 @@ function ListItem({jobs}) {
                 <button className="btn btn-sm btn-danger" onClick={() => HandleDelete(index)}>
                     <FiTrash2 />
                 </button>
+                </div>
             </td>
         </tr>
     ))

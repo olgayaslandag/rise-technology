@@ -24,20 +24,22 @@ function List() {
                 <div className="card-header">
                     <h5>Job List</h5>
                 </div>
-                <div className="card-body p-0">
+                <div className="card-body">
                     <Filter />
-                    <table className="table mb-0">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th width={200}>Priority</th>
-                            <th width={130}>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <ListItem jobs={filtered}/>
-                        </tbody>
-                    </table>
+                    <div className="table-responsive p-3">
+                        <table className="table mb-0">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th width="120" className="text-center">Priority</th>
+                                <th width="80">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <ListItem jobs={filtered}/>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <Modal />

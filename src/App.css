@@ -1,3 +1,7 @@
+body {
+    font-weight: 300;
+}
+
 .btn {
     -webkit-font-smoothing: antialiased;
 }
@@ -6,4 +10,18 @@
     font-size: 1rem;
     padding-top: 0.5rem;
     text-transform: uppercase;
+}
+
+.addButton {
+    margin-top: 1.4rem;
+}
+
+label {
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .addButton {
+        margin-top: 0;
+    }
 }
